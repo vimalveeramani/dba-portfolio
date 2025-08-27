@@ -1,103 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vimal Veeramani | Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vimal Veeramani — Portfolio</title>
+
+  <!-- Fonts (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <nav>
-      <h1 class="logo">Vimal Veeramani ✦</h1>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button id="theme-toggle">☀️</button></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero">Vimal Veeramani</a>
+
+      <button id="nav-toggle" class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-btn" aria-pressed="false" title="Toggle theme">☀️</button>
+          <a class="btn small" href="Resume.docx" download>Download Resume</a>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <div class="hero-text floating">
-      <h2>「 Amor Fati 」</h2>
-      <p>A stoic soul, a learner every day, and a builder of resilient systems.</p>
-      <a href="#projects" class="btn glow">View My Work</a>
-      <a href="Resume.docx" class="btn secondary glow" download>⬇ Resume</a>
+  <!-- HERO -->
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <h1 class="hero-title">「 Amor Fati 」</h1>
+          <p class="hero-sub">Stoic, curious, and obsessed with resilient databases & systems. I optimize, automate and secure — every day a little better.</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn ghost" href="#resume">Preview Resume</a>
+          </div>
+
+          <ul class="hero-tags" aria-hidden="true">
+            <li>MySQL</li><li>MongoDB</li><li>AWS</li><li>Backup Automation</li><li>Monitoring (PMM)</li>
+          </ul>
+        </div>
+
+        <div class="hero-scene reveal" aria-hidden="true">
+          <!-- Simple animated gradient + floating orb gives anime-ish but realistic feel -->
+          <div class="gradient-blob"></div>
+          <svg class="orb" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <radialGradient id="g1" cx="50%" cy="40%">
+                <stop offset="0%" stop-color="#9be2ff"/>
+                <stop offset="60%" stop-color="#6aa8ff"/>
+                <stop offset="100%" stop-color="#3b6bff"/>
+              </radialGradient>
+            </defs>
+            <circle cx="100" cy="100" r="70" fill="url(#g1)" opacity="0.95"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container reveal">
+        <h2>About</h2>
+        <p class="lead">
+          I'm <strong>Vimal V</strong> (22). Data Engineer & DBA focused on making systems reliable and simple. I practice stoicism — focus on the controllable, reduce noise, and ship consistent results.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section section-alt">
+      <div class="container reveal">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Databases</h3>
+            <p>MySQL (8+), MongoDB (3→6 migrations), InnoDB tuning, replication (GTID), ProxySQL.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Backups & HA</h3>
+            <p>mysqldump, Percona XtraBackup, S3 archival, Multi-AZ & replica setups.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Monitoring & Ops</h3>
+            <p>Percona PMM, slow query analysis, alerting, automated runbooks.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Cloud & Tools</h3>
+            <p>AWS (EC2, RDS, S3, DocumentDB), Docker, Bash, Git, Linux (RHEL/CentOS/Ubuntu).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="reveal">Projects</h2>
+        <p class="muted reveal">A selection of work—technical, operational and migration projects that reflect my priorities: reliability, simplicity, repeatability.</p>
+
+        <div class="projects-grid">
+          <!-- Each project includes tags + short bullets -->
+          <article class="project-card reveal">
+            <header><h3>MySQL Optimization & CTE Refactor</h3><span class="tag">Query Tuning</span></header>
+            <p>Refactored large queries and stored procedures using CTEs, added composite indexes and reduced query latency by up to 80% in heavy OLTP workloads.</p>
+            <ul>
+              <li>EXPLAIN / EXPLAIN ANALYZE driven</li>
+              <li>Reduced lock contention & deadlocks</li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <header><h3>PMM Monitoring Setup</h3><span class="tag">Monitoring</span></header>
+            <p>Deployed PMM (server + agents), dashboards and alerts for production clusters. Integrated slow query analysis into weekly runbook.</p>
+            <ul><li>Percona PMM v2 agents</li><li>Alert automation</li></ul>
+          </article>
+
+          <article class="project-card reveal">
+            <header><h3>Backup Automation → S3</h3><span class="tag">Backup & DR</span></header>
+            <p>Automated full and incremental backups using XtraBackup + mysqldump and lifecycle policy to S3; retained daily logs and built restore checks.</p>
+          </article>
+
+          <article class="project-card reveal">
+            <header><h3>CtrlS → AWS EC2 Migration</h3><span class="tag">Migration</span></header>
+            <p>Planned and executed migration of core banking DBs to AWS EC2 with minimal downtime and validated replication & failover behavior.</p>
+          </article>
+
+          <article class="project-card reveal">
+            <header><h3>MySQL 5.6 → 8.0 Upgrade</h3><span class="tag">Upgrade</span></header>
+            <p>Upgraded production fleets to MySQL 8.0 ensuring replication stability, compatibility, and performance tuning post-upgrade.</p>
+          </article>
+
+          <article class="project-card reveal">
+            <header><h3>MongoDB Atlas → DocumentDB / 3 → 6 Upgrade</h3><span class="tag">MongoDB</span></header>
+            <p>Planned & executed migrations: Atlas → AWS DocumentDB + in-place major version upgrade from MongoDB 3.x to 6.x with compatibility checks, schema validation and performance tuning.</p>
+            <ul><li>Compatibility audit & driver updates</li><li>Tested failover and read/write behavior</li></ul>
+          </article>
+
+          <article class="project-card reveal">
+            <header><h3>GTID Replication Troubleshooting</h3><span class="tag">Replication</span></header>
+            <p>Diagnosed duplicate entry issues on GTID-based replicas, reconciled ignored tables, and ensured consistent binlog positions across replicas.</p>
+          </article>
+
+          <article class="project-card reveal">
+            <header><h3>Stored Procedure Refactor — sp_DBR_Total_Revenue</h3><span class="tag">Procedures</span></header>
+            <p>Refactored complex stored procedure to use CTEs and JSON functions, improving readability and reducing runtime by 60%.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME (embedded + download) -->
+    <section id="resume" class="section section-alt">
+      <div class="container reveal">
+        <h2>Resume</h2>
+        <p class="muted">Preview below — download available as DOCX.</p>
+
+        <div class="resume-wrapper">
+          <!-- Use a PDF if available. Fallback link provided. -->
+          <iframe id="resume-iframe" src="Resume.pdf" title="Resume preview" frameborder="0"></iframe>
+        </div>
+
+        <div class="resume-actions">
+          <a class="btn primary" href="Resume.pdf" download>Download PDF</a>
+          <a class="btn ghost" href="Resume.docx" download>Download DOCX</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container reveal">
+        <h2>Contact</h2>
+        <p class="lead">Email: <a href="mailto:vimalveeramani45@gmail.com">vimalveeramani45@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/vimalveeramani" target="_blank" rel="noopener">github.com/vimalveeramani</a> · LinkedIn: <a href="https://linkedin.com/in/vimalveera" target="_blank" rel="noopener">linkedin.com/in/vimalveera</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Vimal Veeramani · Stoic + practical · Blue-themed aesthetic</p>
     </div>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I'm <strong>Vimal V</strong>, a 22-year-old Data Engineer & DBA.  
-      I love simplifying complex systems, optimizing databases, and finding beauty in minimalism.  
-      Inspired by stoicism, I embrace <em>resilience</em> and focus on what truly matters.
-    </p>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>MySQL & MongoDB Administration</li>
-      <li>Backup & Recovery (mysqldump, XtraBackup, AWS S3)</li>
-      <li>Replication, ProxySQL & High Availability</li>
-      <li>Performance Tuning (EXPLAIN, PMM, Slow Logs)</li>
-      <li>AWS (EC2, RDS, S3, DocumentDB), Azure basics</li>
-      <li>Linux (RHEL, CentOS, Ubuntu)</li>
-      <li>Docker, Git, Bash Automation</li>
-    </ul>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="card"><h3>MySQL Optimization</h3><p>Refactored stored procedures & queries using CTEs and indexes.</p></div>
-      <div class="card"><h3>PMM Monitoring Setup</h3><p>Configured monitoring & alerts for production MySQL clusters.</p></div>
-      <div class="card"><h3>Backup Automation</h3><p>Automated MySQL backups with S3 integration for HA.</p></div>
-      <div class="card"><h3>CtrlS → AWS Migration</h3><p>Migrated core banking DBs from CtrlS to AWS EC2 with near-zero downtime.</p></div>
-      <div class="card"><h3>MySQL 5.6 → 8.0 Upgrade</h3><p>Handled upgrade ensuring replication stability & query optimization.</p></div>
-      <div class="card"><h3>MongoDB Atlas → AWS DocumentDB</h3><p>Executed migration strategy reducing infra cost & maintaining HA.</p></div>
-      <div class="card"><h3>MongoDB 3 → 6 Upgrade</h3><p>Upgraded production workloads ensuring compatibility, stability & performance.</p></div>
-    </div>
-  </section>
-
-  <!-- Certifications -->
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <ul>
-      <li>MySQL 8.0 Database Administrator (Oracle)</li>
-      <li>MongoDB SI Architect</li>
-      <li>MySQL Implementation Associate (Oracle)</li>
-    </ul>
-  </section>
-
-  <!-- Stoic Quotes -->
-  <section id="quotes">
-    <h2>Stoic Wisdom</h2>
-    <blockquote id="stoic-quote">"Waste no more time arguing what a good man should be. Be one." – Marcus Aurelius</blockquote>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:vimalveeramani45@gmail.com">vimalveeramani45@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/vimalveeramani">github.com/vimalveeramani</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/vimalveera">linkedin.com/in/vimalveera</a></p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Vimal Veeramani ✦ Inspired by Stoicism & Anime Aesthetics</p>
   </footer>
 </body>
 </html>
