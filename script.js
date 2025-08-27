@@ -25,11 +25,3 @@ setInterval(() => {
   index = (index + 1) % quotes.length;
   document.getElementById("stoic-quote").textContent = quotes[index];
 }, 6000);
-
-// Button Press Animation
-document.querySelectorAll(".btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    btn.classList.add("pressed");
-    setTimeout(() => btn.classList.remove("pressed"), 200);
-  });
-});
